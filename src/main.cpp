@@ -1,4 +1,8 @@
+#include <SFML/Main.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Config.hpp>
 #include <iostream>
 #include "main.hpp"
 
@@ -102,7 +106,7 @@ int main() {
             Game.FixedFrame();
             Time.Frame();
         }
-        //window.draw(Game.debugText);
+        //window.draw(Game.debugText); //idk why but this is the front of the segfault
         //std::cout << Time.elapsed.asMilliseconds() << std::endl;
         window.clear();
         window.display();

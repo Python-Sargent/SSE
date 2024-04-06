@@ -1,0 +1,1 @@
+#define FRAMERATE 60 //frames per second

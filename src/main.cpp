@@ -38,14 +38,17 @@ struct{
         // do stuff on a fixed framerate
         //std::cout << Time.frameTime.asMilliseconds() << std::endl;
         this->debugText.setString("Milliseconds Per Frame: " + Time.frameTime.asMilliseconds());
+        std::cout << "Milliseconds Per Frame: " << Time.frameTime.asMilliseconds() << std::endl;
+        std::cout << debugText.getString().toAnsiString() << std::endl;
     }
     void Init() {
         //do stuff at the start of the game, like creating sprites and loading assets
         sf::Font font;
-        if (!font.loadFromFile("../resources/JetBrains_Mono/static/JetBrainsMono-Regular.ttf"))
+        if (!font.loadFromFile("../resources/JetBrainsMono-Regular.ttf")) //../resources/JetBrains_Mono/static/JetBrainsMono-Regular.ttf
         {
             throw("Missing Font Family 'JetBrainsMono-Regular.ttf'");
         }
+        this->debugText.setPosition(100, 100);
         this->debugText.setFont(font);
         this->debugText.setString("Milliseconds Per Frame: ");
         this->debugText.setCharacterSize(24);
@@ -101,14 +104,12 @@ int main() {
         }
         Time.Update();
 
-        //std::cout << Time.deltaTime.asMilliseconds() << std::endl;
         if (Time.frameTime.asMilliseconds() >= 16.6666) { //ends up being 17 milliseconds
             Game.FixedFrame();
             Time.Frame();
         }
-        //window.draw(Game.debugText); //idk why but this is the front of the segfault
-        //std::cout << Time.elapsed.asMilliseconds() << std::endl;
         window.clear();
+        //window.draw(Game.debugText); //idk why but this is the front of the segfault
         window.display();
     }
 

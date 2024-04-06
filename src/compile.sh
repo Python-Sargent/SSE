@@ -1,3 +1,5 @@
 g++ -c main.cpp
-g++ main.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system
-./sfml-app
+g++ main.o -o ../run/sse-app -lsfml-graphics -lsfml-window -lsfml-system
+cd ../run
+./sse-app
+cd ../src
